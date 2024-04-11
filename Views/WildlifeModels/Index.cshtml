@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WildlifeCreatures_Assignment3.Models.WildlifeModel>
+
+@{
+    // Set the title of the page
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        color: white; /* Set text color to white */
+    }
+
+    .table {
+        font-family: Courier New, Courier, monospace; /* Set font family */
+        font-style: italic; /* Set font style to italic */
+        font-weight: bold; /* Set font weight to bold */
+        font-size: 17.5px; /* Set font size */
+    }
+</style>
+
+<body>
+    <h1>Index</h1>
+
+    <p>
+        <!-- Link to create a new wildlife creature -->
+        <a asp-action="Create">Create New</a>
+    </p>
+    <!-- Table to display wildlife creatures -->
+    <table class="table text-white">
+        <thead>
+            <!-- Table header -->
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Weight (in Kgs)</th>
+                <th>Photo</th>
+                <th>Habitat</th>
+                <th>Current Population</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through each wildlife creature in the model -->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <!-- Display the ID of the creature -->
+                    <td>@item.Id</td>
+                    <!-- Display the name of the creature -->
+                    <td>@item.Name</td>
+                    <!-- Display the weight of the creature -->
+                    <td>@item.Weight</td>
+                    <!-- Display the photo of the creature -->
+                    <td><img src="@item.PhotoUrl" alt="Creature Photo" style="max-width: 200px;" /></td>
+                    <!-- Display the habitat of the creature -->
+                    <td>@item.Habitat</td>
+                    <!-- Display the current population of the creature -->
+                    <td>@item.CurrentPopulation</td>
+                    <!-- Actions for the creature (Edit, Details, Delete) -->
+                    <td>
+                        <!-- Link to edit the creature -->
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <!-- Link to view details of the creature -->
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <!-- Link to delete the creature -->
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

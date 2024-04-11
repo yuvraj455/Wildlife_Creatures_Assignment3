@@ -1,0 +1,66 @@
+﻿@{
+    // Setting the title of the page
+    ViewData["Title"] = "Home Page";
+}
+<!-- Start of HTML body -->
+<body>
+
+    <!-- A div for centering content -->
+    <div class="text-center">
+        <!-- Heading for the page -->
+        <h1 class="display-4">Welcome to the Home Page</h1>
+
+        <!-- Description of the page -->
+        <p>This is a simple demo of using C# with HTML.</p>
+
+        <!-- Inline C# code block for generating a greeting -->
+        <p>
+            @{
+                // Defining a greeting
+                string greeting = "Hello!";
+                // Outputting the greeting
+                @greeting
+            }
+        </p>
+    </div>
+
+    <!-- C# code block for generating a dynamic unordered list -->
+    @{
+        // Defining variables for generating HTML code
+        string codeline1 = "<ul>";
+        string codeline2 = "@for(int i = 1; i <=5; i++)";
+        string codeline3 = "{";
+        string codeline4 = "<li>Item @i</li>";
+        string codeline5 = "}";
+        string codeline6 = "</ul>";
+    }
+
+    <!-- Explanation of the dynamic content generation -->
+    <p>
+        We can also use C# to generate dynamic content:
+        the below code will generate an unordered list of 5 items with each item named as "Item 1", "Item 2", and so on as it progresses through the loop.
+        <!-- Styling for the dynamic content -->
+        <div style="color: red; font-weight: bold">
+            <!-- Outputting the dynamic content generation code -->
+            @codeline1 <br />
+            &nbsp; @codeline2 </br>
+            @codeline3 </br>
+            &nbsp; @codeline4 </br>
+            @codeline5 </br>
+            @codeline6
+        </div>
+    </p>
+
+    <!-- Generating a static unordered list using C# -->
+    <ul>
+        @for (int i = 1; i <= 5; i++)
+        {
+            <li>Item @i</li>
+        }
+    </ul>
+
+    <!-- Link to another page -->
+    <h6 class="text-center"><a asp-controller="WildlifeModels" asp-action="Index">Click here</a> to view the List of Wildlife Creatures.</h6>
+
+</body>
+<!-- End of HTML body -->

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page title -->
+    <title>@ViewData["Title"] - WildlifeCreatures_Assignment3</title>
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WildlifeCreatures_Assignment3.styles.css" asp-append-version="true" />
+    <!-- Inline styles -->
+    <style>
+        ul li {
+            font-size: 20px;
+            font-family: Courier New, Courier, monospace;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+            ul li:hover {
+                background-color: darkgoldenrod;
+            }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Header -->
+    <header>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <!-- Brand/logo -->
+                <a class="navbar-brand text-white" asp-area="" asp-controller="WildlifeModels" asp-action="Index">WildlifeCreatures_Assignment3</a>
+                <!-- Navbar toggle button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links -->
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <!-- Home link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <!-- Privacy link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <!-- About Us link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="WildlifeModels" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <!-- List link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="WildlifeModels" asp-action="Index">List</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Main content area -->
+        <main role="main" class="pb-3">
+            <!-- Placeholder for individual views -->
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-top footer text-muted bg-black text-white">
+        <div class="container text-white">
+            <!-- Copyright information -->
+            &copy; 2024 - WildlifeCreatures_Assignment3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <!-- JavaScript references -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Render additional scripts defined in individual views -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
